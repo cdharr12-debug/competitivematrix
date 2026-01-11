@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.apollo.io)",
+      "WebFetch(domain:www.clari.com)",
+      "WebFetch(domain:www.blueocean.ai)",
+      "WebFetch(domain:hightouch.com)",
+      "WebFetch(domain:www.forrester.com)",
+      "Bash(gh auth status:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "WebSearch",
+      "WebFetch(domain:brandfetch.com)",
+      "WebFetch(domain:encycolorpedia.com)",
+      "WebFetch(domain:www.vendr.com)"
+    ]
+  }
+}
