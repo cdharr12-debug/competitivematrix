@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CacheMonai - Competitive Matrix References</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+            line-height: 1.6;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #15A2F1;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            color: #15A2F1;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666666;
+        }
+
+        .internal-label {
+            font-size: 0.95rem;
+            color: #666666;
+            margin-top: 5px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #15A2F1;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Competitor Sections */
+        .competitor-section {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            scroll-margin-top: 20px;
+        }
+
+        .competitor-header {
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .competitor-header h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .competitor-header .comp-type {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .competitor-content {
+            padding: 0 25px 25px 25px;
+        }
+
+        .source-category {
+            margin-bottom: 20px;
+        }
+
+        .source-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .source-category h3 {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .source-list {
+            list-style: none;
+        }
+
+        .source-list li {
+            margin-bottom: 8px;
+        }
+
+        .source-list a {
+            color: #15A2F1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .source-list a:hover {
+            text-decoration: underline;
+        }
+
+        .source-list .source-desc {
+            color: #888;
+            font-size: 0.85rem;
+            margin-left: 20px;
+        }
+
+        /* Competitor Header Colors */
+        .competitor-header.apollo {
+            background: linear-gradient(135deg, #F8FF2C 0%, #E5EB28 100%);
+            color: #333333;
+        }
+
+        .competitor-header.clari {
+            background: linear-gradient(135deg, #71FFEB 0%, #5CE0CE 100%);
+            color: #333333;
+        }
+
+        .competitor-header.blueocean {
+            background: linear-gradient(135deg, #03085A 0%, #020640 100%);
+            color: white;
+        }
+
+        .competitor-header.hightouch {
+            background: linear-gradient(135deg, #40DE9E 0%, #35C78B 100%);
+            color: #333333;
+        }
+
+        .competitor-header.forrester {
+            background: linear-gradient(135deg, #00563F 0%, #003D2D 100%);
+            color: white;
+        }
+
+        .competitor-header.salesforce {
+            background: linear-gradient(135deg, #00A1E0 0%, #0085C7 100%);
+            color: white;
+        }
+
+        .competitor-header.quantumblack {
+            background: linear-gradient(135deg, #051C2C 0%, #031018 100%);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #888888;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #15A2F1;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .competitor-header {
+                padding: 15px 20px;
+            }
+
+            .competitor-content {
+                padding: 0 20px 20px 20px;
+            }
+        }
+
+        @media print {
+            .back-link {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span>CacheMonai™</span> Competitive Matrix</h1>
+            <p class="subtitle">Reference Sources & Documentation</p>
+            <p class="internal-label">Internal Tool</p>
+            <a href="index.html" class="back-link">&larr; Back to Competitive Matrix</a>
+        </header>
+
+        <!-- Apollo.io -->
+        <div class="competitor-section" id="apollo">
+            <div class="competitor-header apollo">
+                <div>
+                    <h2>Apollo.io</h2>
+                    <div class="comp-type">Sales Intelligence Platform</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.apollo.io/" target="_blank">&#8594; Apollo.io Homepage</a>
+                            <div class="source-desc">Main product overview and features</div>
+                        </li>
+                        <li>
+                            <a href="https://www.apollo.io/pricing" target="_blank">&#8594; Apollo.io Pricing</a>
+                            <div class="source-desc">Pricing tiers and feature comparison</div>
+                        </li>
+                        <li>
+                            <a href="https://www.apollo.io/product/engage" target="_blank">&#8594; Apollo Engage</a>
+                            <div class="source-desc">Sequences and automation features</div>
+                        </li>
+                        <li>
+                            <a href="https://www.apollo.io/product/intelligence" target="_blank">&#8594; Apollo Intelligence</a>
+                            <div class="source-desc">AI and analytics capabilities</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Third-Party Reviews</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.g2.com/products/apollo-io/reviews" target="_blank">&#8594; G2 Reviews - Apollo.io</a>
+                            <div class="source-desc">User reviews and ratings</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clari -->
+        <div class="competitor-section" id="clari">
+            <div class="competitor-header clari">
+                <div>
+                    <h2>Clari</h2>
+                    <div class="comp-type">Revenue Platform</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.clari.com/" target="_blank">&#8594; Clari Homepage</a>
+                            <div class="source-desc">Main product overview</div>
+                        </li>
+                        <li>
+                            <a href="https://www.clari.com/platform" target="_blank">&#8594; Clari Platform</a>
+                            <div class="source-desc">Platform features and capabilities</div>
+                        </li>
+                        <li>
+                            <a href="https://www.clari.com/products/revenue-intelligence" target="_blank">&#8594; Revenue Intelligence</a>
+                            <div class="source-desc">AI-powered forecasting features</div>
+                        </li>
+                        <li>
+                            <a href="https://www.clari.com/products/conversation-intelligence" target="_blank">&#8594; Conversation Intelligence</a>
+                            <div class="source-desc">Call and meeting analysis</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Third-Party Reviews</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.g2.com/products/clari/reviews" target="_blank">&#8594; G2 Reviews - Clari</a>
+                            <div class="source-desc">User reviews and ratings</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BlueOcean.ai -->
+        <div class="competitor-section" id="blueocean">
+            <div class="competitor-header blueocean">
+                <div>
+                    <h2>BlueOcean.ai</h2>
+                    <div class="comp-type">Brand Intelligence Platform</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.blueocean.ai/" target="_blank">&#8594; BlueOcean.ai Homepage</a>
+                            <div class="source-desc">Main product overview</div>
+                        </li>
+                        <li>
+                            <a href="https://www.blueocean.ai/platform" target="_blank">&#8594; BlueOcean Platform</a>
+                            <div class="source-desc">Brand intelligence features</div>
+                        </li>
+                        <li>
+                            <a href="https://www.blueocean.ai/solutions" target="_blank">&#8594; Solutions</a>
+                            <div class="source-desc">Use cases and industry solutions</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Third-Party Reviews</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.g2.com/products/blueocean/reviews" target="_blank">&#8594; G2 Reviews - BlueOcean</a>
+                            <div class="source-desc">User reviews and ratings</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hightouch -->
+        <div class="competitor-section" id="hightouch">
+            <div class="competitor-header hightouch">
+                <div>
+                    <h2>Hightouch</h2>
+                    <div class="comp-type">Data Activation Platform</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://hightouch.com/" target="_blank">&#8594; Hightouch Homepage</a>
+                            <div class="source-desc">Main product overview</div>
+                        </li>
+                        <li>
+                            <a href="https://hightouch.com/platform" target="_blank">&#8594; Hightouch Platform</a>
+                            <div class="source-desc">Reverse ETL and data sync features</div>
+                        </li>
+                        <li>
+                            <a href="https://hightouch.com/integrations" target="_blank">&#8594; Integrations</a>
+                            <div class="source-desc">250+ destination integrations</div>
+                        </li>
+                        <li>
+                            <a href="https://hightouch.com/pricing" target="_blank">&#8594; Pricing</a>
+                            <div class="source-desc">Pricing tiers and plans</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Third-Party Reviews</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.g2.com/products/hightouch/reviews" target="_blank">&#8594; G2 Reviews - Hightouch</a>
+                            <div class="source-desc">User reviews and ratings</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forrester Izola -->
+        <div class="competitor-section" id="forrester">
+            <div class="competitor-header forrester">
+                <div>
+                    <h2>Forrester Izola</h2>
+                    <div class="comp-type">Research & Insights AI</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.forrester.com/bold/" target="_blank">&#8594; Forrester Izola (Bold)</a>
+                            <div class="source-desc">AI-powered research assistant</div>
+                        </li>
+                        <li>
+                            <a href="https://www.forrester.com/research/" target="_blank">&#8594; Forrester Research</a>
+                            <div class="source-desc">Research library and methodology</div>
+                        </li>
+                        <li>
+                            <a href="https://www.forrester.com/policies/pricing/" target="_blank">&#8594; Forrester Pricing</a>
+                            <div class="source-desc">Subscription and pricing information</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Press & Announcements</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.forrester.com/press-newsroom/" target="_blank">&#8594; Forrester Newsroom</a>
+                            <div class="source-desc">Product announcements and updates</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salesforce -->
+        <div class="competitor-section" id="salesforce">
+            <div class="competitor-header salesforce">
+                <div>
+                    <h2>Salesforce</h2>
+                    <div class="comp-type">CRM + Agentforce AI Platform</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.salesforce.com/" target="_blank">&#8594; Salesforce Homepage</a>
+                            <div class="source-desc">Main product overview</div>
+                        </li>
+                        <li>
+                            <a href="https://www.salesforce.com/agentforce/" target="_blank">&#8594; Agentforce Platform</a>
+                            <div class="source-desc">Autonomous AI agents for sales and service</div>
+                        </li>
+                        <li>
+                            <a href="https://www.salesforce.com/artificial-intelligence/" target="_blank">&#8594; Salesforce AI (Einstein)</a>
+                            <div class="source-desc">AI capabilities overview</div>
+                        </li>
+                        <li>
+                            <a href="https://www.salesforce.com/data/" target="_blank">&#8594; Data Cloud</a>
+                            <div class="source-desc">Customer data platform and zero-copy integrations</div>
+                        </li>
+                        <li>
+                            <a href="https://www.salesforce.com/pricing/" target="_blank">&#8594; Salesforce Pricing</a>
+                            <div class="source-desc">Product pricing and editions</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Documentation & Developer Resources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://developer.salesforce.com/" target="_blank">&#8594; Salesforce Developers</a>
+                            <div class="source-desc">API documentation and developer resources</div>
+                        </li>
+                        <li>
+                            <a href="https://developer.salesforce.com/blogs/2024/08/zero-copy-data-federation-with-snowflake-and-salesforce-data-cloud" target="_blank">&#8594; Zero Copy Data Federation</a>
+                            <div class="source-desc">Technical details on data warehouse integration</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Third-Party Analysis</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.salesforceben.com/the-definitive-guide-to-einstein-gpt-salesforce-ai/" target="_blank">&#8594; Salesforce Ben - Einstein AI Guide</a>
+                            <div class="source-desc">Comprehensive Einstein AI analysis</div>
+                        </li>
+                        <li>
+                            <a href="https://www.g2.com/products/salesforce-sales-cloud/reviews" target="_blank">&#8594; G2 Reviews - Salesforce</a>
+                            <div class="source-desc">User reviews and ratings</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- QuantumBlack -->
+        <div class="competitor-section" id="quantumblack">
+            <div class="competitor-header quantumblack">
+                <div>
+                    <h2>QuantumBlack</h2>
+                    <div class="comp-type">AI by McKinsey</div>
+                </div>
+            </div>
+            <div class="competitor-content">
+                <div class="source-category">
+                    <h3>Official Sources</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.mckinsey.com/capabilities/quantumblack" target="_blank">&#8594; QuantumBlack Homepage</a>
+                            <div class="source-desc">Main overview and capabilities</div>
+                        </li>
+                        <li>
+                            <a href="https://www.mckinsey.com/capabilities/quantumblack/how-we-help-clients" target="_blank">&#8594; AI Consulting Services</a>
+                            <div class="source-desc">How QuantumBlack helps clients</div>
+                        </li>
+                        <li>
+                            <a href="https://www.mckinsey.com/capabilities/quantumblack/labs" target="_blank">&#8594; QuantumBlack Labs</a>
+                            <div class="source-desc">Products and AI tools</div>
+                        </li>
+                        <li>
+                            <a href="https://www.mckinsey.com/capabilities/quantumblack/labs/our-products" target="_blank">&#8594; Products Overview</a>
+                            <div class="source-desc">20+ AI products and 140+ use case accelerators</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Research & Insights</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">&#8594; The State of AI 2025</a>
+                            <div class="source-desc">McKinsey's annual AI survey and analysis</div>
+                        </li>
+                        <li>
+                            <a href="https://www.mckinsey.com/capabilities/quantumblack/how-we-help-clients/generative-ai" target="_blank">&#8594; Generative AI Solutions</a>
+                            <div class="source-desc">Gen AI capabilities and offerings</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Platform Documentation</h3>
+                    <ul class="source-list">
+                        <li>
+                            <a href="https://medium.com/quantumblack/quantumblack-horizon-unleashing-the-power-of-generative-ai-a3022597c642" target="_blank">&#8594; QuantumBlack Horizon</a>
+                            <div class="source-desc">AI development and deployment platform details</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>CacheMonai™</strong> &mdash; Competitive Matrix References</p>
+            <p>Sources compiled January 2026. Links verified at time of publication.</p>
+            <p style="margin-top: 15px;"><a href="index.html">&larr; Return to Competitive Matrix</a></p>
+        </footer>
+    </div>
+</body>
+</html>

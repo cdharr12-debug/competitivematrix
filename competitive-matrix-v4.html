@@ -251,6 +251,50 @@
             font-weight: 600;
         }
 
+        /* Signature Feature Row - Sparkle Effect */
+        .signature-feature {
+            background: linear-gradient(90deg, rgba(21, 162, 241, 0.08) 0%, rgba(21, 162, 241, 0.15) 50%, rgba(21, 162, 241, 0.08) 100%) !important;
+            position: relative;
+        }
+
+        .signature-feature td {
+            background: transparent !important;
+        }
+
+        .signature-feature td:first-child {
+            background: linear-gradient(90deg, rgba(21, 162, 241, 0.12) 0%, rgba(21, 162, 241, 0.05) 100%) !important;
+        }
+
+        .signature-feature .feature-name {
+            font-weight: 600;
+            color: #0d8bd4;
+        }
+
+        .sparkle-icon {
+            display: inline-block;
+            margin-right: 8px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .signature-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #15A2F1 0%, #0d8bd4 100%);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+
         /* Feature name with tooltip */
         .feature-name {
             position: relative;
@@ -592,8 +636,9 @@
 <body>
     <div class="container">
         <header>
-            <h1><span>CacheMonai</span> Competitive Matrix</h1>
+            <h1><span>CacheMonai™</span> Competitive Matrix</h1>
             <p class="subtitle">Agentic AI Market Landscape Analysis</p>
+            <p class="subtitle" style="font-size: 0.95rem; margin-top: 5px;">Internal Tool</p>
             <p class="last-updated">Last Updated: January 2026 | Version 4.0 (Research Verified)</p>
         </header>
 
@@ -683,6 +728,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr class="signature-feature">
+                            <td class="feature-name">
+                                <span class="sparkle-icon">&#10024;</span>Prospecting Sales Campaigns
+                                <span class="signature-badge">Signature</span>
+                                <span class="tooltip">Step-by-step process presented to your team to take immediate action on</span>
+                            </td>
+                            <td class="cachemonai-column"><input type="checkbox" class="feature-checkbox"></td>
+                            <td class="cachemonai-column cachemonai-column-end"><input type="checkbox" class="feature-checkbox"></td>
+                            <td><span class="status cross">&#10005;</span></td>
+                            <td><span class="status cross">&#10005;</span></td>
+                            <td><span class="status cross">&#10005;</span></td>
+                            <td><span class="status cross">&#10005;</span></td>
+                            <td><span class="status cross">&#10005;</span></td>
+                        </tr>
                         <tr>
                             <td class="feature-name">
                                 AI Agents / Autonomous Agents
